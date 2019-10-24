@@ -1,0 +1,11 @@
+div {
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+}
+img {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+

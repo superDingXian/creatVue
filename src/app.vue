@@ -1,19 +1,20 @@
 <template>
-  <div id="app">{{text}}</div>
+    <div id="app">
+        {{text}}
+        <img src="../img/Concern.png"/>
+    </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      text: 'Hello WebPack!',
+      text: 'Hello Webpack!',
     }
   }
 }
 </script>
 
-<style>
- #test {
-   color: brown;
- }
+<style lang="less">
+    @import "../src/test.less";
 </style>

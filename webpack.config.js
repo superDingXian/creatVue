@@ -1,38 +1,68 @@
-const path = require('path');
-const { VueLoaderPlugin } = require('vue-loader');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const path = require("path");
+const { VueLoaderPlugin } = require("vue-loader");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ImageminPlugin = require("imagemin-webpack-plugin").default;
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     //项目入口文件
-    entry: path.join(__dirname, 'src/index.js'),
+    entry: path.join(__dirname, "src/index.js"),
     output: {
-        //打包后文件名
-        filename: 'bundle.js',
         //打包出口路径
-        path: path.join(__dirname, 'dist')
+        path: path.join(__dirname, "dist"),
+        filename: "js/[name].js",
+        chunkFilename: "[name].js"
     },
     module: {
         rules: [
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                loader: "vue-loader"
             },
             {
-                test: /\.css$/,
+                test: /\.less$/,
+                use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"]
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
                 use: [
-                    'vue-style-loader',
-                    'css-loader'
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "[name].[ext]",
+                            emitFile: false,
+                            publicPath: "img/",
+                            outputPath: "dist/image/[name].[ext]"
+                        }
+                    }
                 ]
             }
         ]
     },
     plugins: [
         new VueLoaderPlugin(),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'index.html'),
+        //css抽离
+        new MiniCssExtractPlugin({
+            filename: "css/[name].css"
         }),
+        //压缩图片
+        new ImageminPlugin({
+            test: /\.(png|jpg|gif)$/,
+            pngquant: {
+                quality: "95-100"
+            }
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, "index.html"),
+            filename: 'index.html'
+        }),
+        //清空dist文件,需放最后一个
+        new CleanWebpackPlugin()
     ],
     resolve: {
         extensions: [".js", ".vue", ".less"]
+    },
+    devServer: {
+        writeToDisk: true
     }
-}
+};
