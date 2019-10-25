@@ -93,7 +93,18 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"img/Concern.png\";\n\n//# sourceURL=webpack:///./img/Concern.png?");
+eval("module.exports = \"/image/Concern3b8b9b2e.png\";\n\n//# sourceURL=webpack:///./img/Concern.png?");
+
+/***/ }),
+
+/***/ "./img/jingao.jpg":
+/*!************************!*\
+  !*** ./img/jingao.jpg ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"/image/jingao0488c074.jpg\";\n\n//# sourceURL=webpack:///./img/jingao.jpg?");
 
 /***/ }),
 
@@ -310,7 +321,7 @@ eval("\n\nmodule.exports = {\n  isString: function(arg) {\n    return typeof(arg
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  data() {\r\n    return {\r\n      text: 'Hello Webpack!',\r\n    }\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/app.vue?./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n\r\nvar imgSrc = __webpack_require__(/*! ../img/jingao.jpg */ \"./img/jingao.jpg\");\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n    data() {\r\n        return {\r\n        text: 'Hello Webpack!',\r\n        }\r\n    },\r\n    mounted: function() {\r\n        var img = new Image();\r\n        img.id = 'img-js';\r\n        img.src = imgSrc;\r\n        document.body.appendChild(img);\r\n    }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/app.vue?./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -322,7 +333,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n\
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { attrs: { id: \"app\" } }, [\n    _vm._v(\"\\n    \" + _vm._s(_vm.text) + \"\\n    \"),\n    _c(\"img\", { attrs: { src: __webpack_require__(/*! ../img/Concern.png */ \"./img/Concern.png\") } })\n  ])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/app.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { attrs: { id: \"app\" } }, [\n    _vm._v(\"\\n    \" + _vm._s(_vm.text) + \"\\n    \"),\n    _c(\"img\", { attrs: { src: __webpack_require__(/*! ../img/Concern.png */ \"./img/Concern.png\") } }),\n    _vm._v(\" \"),\n    _c(\"div\", { staticClass: \"gifBg\" })\n  ])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/app.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 

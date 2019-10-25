@@ -29,10 +29,9 @@ module.exports = {
                     {
                         loader: "file-loader",
                         options: {
-                            name: "[name].[ext]",
-                            emitFile: false,
-                            publicPath: "img/",
-                            outputPath: "dist/image/[name].[ext]"
+                            name: "[name][hash:8].[ext]",
+                            publicPath: "/image",
+                            outputPath: "image"
                         }
                     }
                 ]
@@ -45,16 +44,16 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "css/[name].css"
         }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, "index.html"),
+            filename: 'index.html'
+        }),
         //压缩图片
         new ImageminPlugin({
             test: /\.(png|jpg|gif)$/,
             pngquant: {
                 quality: "95-100"
             }
-        }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "index.html"),
-            filename: 'index.html'
         }),
         //清空dist文件,需放最后一个
         new CleanWebpackPlugin()
