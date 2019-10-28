@@ -1,17 +1,17 @@
 <template>
     <div id="app">
         {{text}}
-        <img src="../img/Concern.png"/>
+        <img src="../../../img/Concern.png"/>
         <div class="gifBg"></div>
     </div>
 </template>
 
 <script>
-var imgSrc = require('../img/jingao.jpg');
+var imgSrc = require('../../../img/jingao.jpg');
 export default {
     data() {
         return {
-        text: 'Hello Webpack!',
+        text: 'Hello pageOne!',
         }
     },
     mounted: function() {
@@ -24,5 +24,5 @@ export default {
 </script>
 
 <style lang="less">
-    @import "../src/test.less";
+    @import "./test.less";
 </style>

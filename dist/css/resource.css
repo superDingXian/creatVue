@@ -1,0 +1,16 @@
+div {
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+}
+img {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+.gifBg {
+  width: 86px;
+  height: 86px;
+  background-image: url(/image/loading6ab1c705.gif);
+}
+

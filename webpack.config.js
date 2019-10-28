@@ -4,9 +4,21 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const glob = require('glob');
+function getEntry() {
+    let entry = {};
+    //读取src目录所有page入口
+    glob.sync('src/pages/**/*/index.js')
+        .forEach(function (filePath) {
+            var name = filePath.match(/\/pages\/(.+)\/index.js/);
+            name = name[1];
+            entry[name] = './' + filePath;
+        });
+    return entry;
+}
 module.exports = {
     //项目入口文件
-    entry: path.join(__dirname, "src/index.js"),
+    entry: getEntry(),
     output: {
         //打包出口路径
         path: path.join(__dirname, "dist"),
@@ -63,5 +75,5 @@ module.exports = {
     },
     devServer: {
         writeToDisk: true
-    }
+    },
 };
